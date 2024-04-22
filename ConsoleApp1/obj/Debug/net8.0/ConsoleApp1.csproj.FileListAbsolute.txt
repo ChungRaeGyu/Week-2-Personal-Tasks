@@ -1,0 +1,14 @@
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\bin\Debug\net8.0\ConsoleApp1.exe
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\bin\Debug\net8.0\ConsoleApp1.deps.json
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\bin\Debug\net8.0\ConsoleApp1.runtimeconfig.json
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\bin\Debug\net8.0\ConsoleApp1.dll
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\bin\Debug\net8.0\ConsoleApp1.pdb
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.AssemblyInfoInputs.cache
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.AssemblyInfo.cs
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.csproj.CoreCompileInputs.cache
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.dll
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\obj\Debug\net8.0\refint\ConsoleApp1.dll
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.pdb
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.genruntimeconfig.cache
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\obj\Debug\net8.0\ref\ConsoleApp1.dll
