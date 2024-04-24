@@ -12,3 +12,4 @@ D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\obj\Debug\net8.0\refint\
 D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.pdb
 D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.genruntimeconfig.cache
 D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\obj\Debug\net8.0\ref\ConsoleApp1.dll
+D:\SprtaCodingClub\C#\Week-2-Personal-Tasks\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.sourcelink.json
