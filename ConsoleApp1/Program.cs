@@ -122,10 +122,12 @@ namespace ConsoleApp1
         int plusDefence;
         int hp;
         int gold;
-        bool atk;
-        bool def;
         string atkString;
         string defString;
+        int eWeapon;
+        int eDef;
+        int trash;
+
         public void setting(string level,string job,int attack, int defence, int hp, int gold)
         {
             this.level = level;
@@ -136,6 +138,7 @@ namespace ConsoleApp1
             this.gold = gold;
             plusAttack = 0;
             plusDefence = 0;
+            trash = 124516;
         }
         public void print()
         {
@@ -206,12 +209,20 @@ namespace ConsoleApp1
         {
             this.gold = gold;
         }
+
+        public void SetE()
+        {
+
+        }
     }
     class Program
     {
         static void Main(String[] args)
         {
+            int eWeapon = -1;
+            int eDef = -1;
             Program pg = new Program();
+
             //플레이어
             Player player = new Player();
             player.setting("01", "전사", 10, 5, 100, 1500);
@@ -333,7 +344,7 @@ namespace ConsoleApp1
                                                         eq.PrintStorage(eqCount,true);
                                                         Console.WriteLine();
                                                         ints[eqCount - 1] = checkNum;
-
+                                                        //여기서 장착하면 checkNum을 어디 저장을 하나 해놓고
                                                     }
                                                     checkNum++;
                                                 }
@@ -359,11 +370,40 @@ namespace ConsoleApp1
                                                     {
                                                         if (eqs[ints[num - 1]].IsWear())//장착
                                                         {
-                                                            player.Wear(eqs[ints[num - 1]].GetKind(), eqs[ints[num - 1]].GetAbility());
+                                                            //이전에 장착한 아이템이 있는지 확인
+                                                            if (eqs[ints[num - 1]].GetKind() == "무기")
+                                                            {
+                                                                if (eWeapon > -1)//장착한 무기가 있을 때
+                                                                {
+                                                                    player.Release(eqs[eWeapon].GetKind(), eqs[eWeapon].GetAbility());
+                                                                    eqs[eWeapon].IsWear();
+                                                                }
+                                                                eWeapon = ints[num - 1];
+                                                            }
+                                                            else
+                                                            {
+                                                                if (eDef > -1)
+                                                                {
+                                                                    player.Release(eqs[eDef].GetKind(), eqs[eDef].GetAbility());
+                                                                    eqs[eDef].IsWear();
+                                                                }
+                                                                eDef = ints[num - 1];
+                                                            }
+                                                                //장착한 아이템 설정
+                                                                player.Wear(eqs[ints[num - 1]].GetKind(), eqs[ints[num - 1]].GetAbility());
                                                         }
                                                         else
                                                         {
+                                                            //방어력이 빠진다.
                                                             player.Release(eqs[ints[num - 1]].GetKind(), eqs[ints[num - 1]].GetAbility());
+                                                            if (eqs[ints[num - 1]].GetKind() == "무기")
+                                                            {
+                                                                eWeapon = -1;
+                                                            }
+                                                            else
+                                                            {
+                                                                eDef = -1;
+                                                            }
                                                         }
                                                         break;
                                                     }
@@ -562,6 +602,14 @@ namespace ConsoleApp1
                                                         player.SetGold(player.GetGold()+(sale*85/100));
                                                         eqs[ints[num - 1]].IsWear();
                                                         player.Release(eqs[ints[num - 1]].GetKind(), eqs[ints[num-1]].GetAbility());
+                                                        if (eqs[ints[num - 1]].GetKind() == "무기")
+                                                        {
+                                                            eWeapon = -1;
+                                                        }
+                                                        else
+                                                        {
+                                                            eDef = -1;
+                                                        }
                                                         break;
                                                     }
                                                     else
