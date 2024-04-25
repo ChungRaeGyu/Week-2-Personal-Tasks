@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Security.Cryptography;
 
 namespace ConsoleApp1
@@ -124,9 +125,6 @@ namespace ConsoleApp1
         int gold;
         string atkString;
         string defString;
-        int eWeapon;
-        int eDef;
-        int trash;
 
         public void setting(string level,string job,int attack, int defence, int hp, int gold)
         {
@@ -138,7 +136,6 @@ namespace ConsoleApp1
             this.gold = gold;
             plusAttack = 0;
             plusDefence = 0;
-            trash = 124516;
         }
         public void print()
         {
@@ -209,22 +206,134 @@ namespace ConsoleApp1
         {
             this.gold = gold;
         }
-
-        public void SetE()
+        public int GetDefence()
         {
+            return defence;
+        }
+        public int GetHp()
+        {
+            return hp;
+        }
+        public void SetHp(int h)
+        {
+            hp = h;
+        }
+        public int GetAttack()
+        {
+            return attack;
+        }
+        
 
+    }
+    struct Dongeon
+    {
+        int count;
+        string name;
+        int def;
+        int gold;
+        public int reHp;
+        public int reGold;
+        bool clear;
+        public void Setting(int count,string name, int def,int gold)
+        {
+            this.count = count;
+            this.name = name;
+            this.def = def;
+            this.gold = gold;
+        }
+        public void DongeonPrint()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write($"{count}. ");
+            Console.ResetColor();
+            Console.Write($"{name,-7}");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("|");
+            Console.ResetColor();
+            Console.Write("방어력");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write($" {def} ");
+            Console.ResetColor();
+            Console.WriteLine("이상 권장");
+        }
+
+        public Dongeon DongeonPlay(int pDef,int hp,int pAtk)
+        {
+            Random rand = new Random();
+            if (def > pDef)
+            {
+                if (rand.Next(1, 11) <= 4)//던전 실패 확률 40%
+                {
+                    clear = false;
+                    return new Dongeon { reHp=hp/2,reGold=0};
+                }
+                else
+                {
+                    clear = true;
+                    return new Dongeon { reHp = DecreaseHp(pDef, hp), reGold = CompensationGold(pAtk) };
+                }
+            }
+            else
+            {
+               clear = true;
+               return new Dongeon { reHp = DecreaseHp(pDef, hp), reGold = CompensationGold(pAtk) } ;
+            }
+        }
+        public void DongeonClearPrint(int prevHp,int nowHp,int prevGold,int nowGold)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\n던전 클리어");
+            Console.ResetColor();
+            Console.WriteLine("축하합니다!!");
+            Console.WriteLine("쉬운 던전을 클리어 하였습니다.\n");
+
+            Console.WriteLine("[탐험 결과]");
+            Console.Write("체력 ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"{prevHp} -> {nowHp}");
+            Console.ResetColor();
+            Console.Write("Gold ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write($"{prevGold}");
+            Console.ResetColor();
+            Console.Write(" G ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write($"-> {nowGold}");
+            Console.ResetColor();
+            Console.WriteLine(" G \n");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("0. ");
+            Console.ResetColor();
+            Console.WriteLine("나가기\n");
+            Console.WriteLine("원하시는 행동을 입력해주세요.");
+        }
+        int DecreaseHp(int pDef,int hp)
+        {
+            int difference = pDef - def;
+            Random rand = new();
+            //기본 체력 감소
+            return rand.Next(20-difference, 35-difference);
+        }
+        int CompensationGold(int pAtk)
+        {
+            Random rand = new();
+            return rand.Next(gold+gold*pAtk/100, gold+gold*pAtk*2/100);
+        }
+        public bool IsClear()
+        {
+            return clear;
         }
     }
     class Program
     {
         static void Main(String[] args)
         {
-            int eWeapon = -1;
-            int eDef = -1;
-            Program pg = new Program();
-
+            #region 변수 및 아이템,플레이어 기본값
+            int eWeapon = -1;   //현재 장착한 장비관리
+            int eDef = -1;      //현재 장착한 장비 관리
+            
             //플레이어
-            Player player = new Player();
+            Player player = new();
             player.setting("01", "전사", 10, 5, 100, 1500);
 
             //장비
@@ -237,13 +346,18 @@ namespace ConsoleApp1
             eqs[5].setting("스파르타의 창", 7, "무기", false, "스파르타의 전사들이 사용했다는 전설의 창입니다.",3500,true);
             eqs[6].setting("황성빈의 방망이", 15, "무기", false, "롯데자이언츠의 황성빈의 방망이다.", 3500, false);
 
+            //던전
+            Dongeon[] dg = new Dongeon[3];
+            dg[0].Setting(1, "쉬운 던전", 5,1000);
+            dg[1].Setting(2, "일반 던전", 11,1700);
+            dg[2].Setting(3, "어려운 던전", 17,2500);
             bool gameOver = true; //Update
             int num=-1; //숫자를 받기위한 변수
-            bool wear = true; //장착관리를 종료하기 위한 변수
-            bool inventroy = true;
+            bool wear; //장착관리를 종료하기 위한 변수
+            bool inventroy;
             //캐릭터 정보
+            #endregion //변수관리
 
-            
             while (gameOver)
             {
                 Console.WriteLine("---------------------------------------------------------");
@@ -251,6 +365,7 @@ namespace ConsoleApp1
                 Console.WriteLine("1. 상태 보기");
                 Console.WriteLine("2. 인벤토리");
                 Console.WriteLine("3. 상점");
+                Console.WriteLine("4. 던전입장");
                 Console.WriteLine("원하시는 행동을 입력해주세요");
                 while (true)
                 {
@@ -263,7 +378,7 @@ namespace ConsoleApp1
                         Console.Write(("숫자를 입력해 주세요."));
                     }
                         //문자나 숫자 이런것들이 나오면 다시 시작
-                    if (num >= 1 && num <= 3)
+                    if (num >= 1 && num <= 4)
                     {
                         #region 세부메뉴
                         switch (num)
@@ -427,6 +542,7 @@ namespace ConsoleApp1
                                 
                             #endregion
                             case 3:
+                                #region 상점
                                 bool store = true;
                                 bool Buy;
                                 while (store)
@@ -630,6 +746,89 @@ namespace ConsoleApp1
                                     
                                 }
                             break;
+                            #endregion //상점
+                            case 4:
+                                #region 던전입장
+                                bool dungeon = true;
+                                while (dungeon)
+                                {
+                                    Console.WriteLine("---------------------------------------------------------");
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("던전입장");
+                                    Console.ResetColor();
+                                    Console.WriteLine("이곳에서 던전으로 들어가기전 활동을 할 수 있습니다.\n");
+
+                                    for(int i=0; i < dg.Length; i++)
+                                    {
+                                        dg[i].DongeonPrint();
+                                    }
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.Write("0. ");
+                                    Console.ResetColor();
+                                    Console.WriteLine("나가기");
+                                    Console.WriteLine("원하시는 행동을 입력해주세요");
+                                    while (true)
+                                    {
+                                        try
+                                        {
+                                            num = int.Parse(Console.ReadLine());
+                                        }
+                                        catch (Exception)
+                                        {
+                                            Console.WriteLine("숫자를 입력하세요");
+                                        }
+                                        if(num == 0)
+                                        {
+                                            dungeon = false;
+                                            break;
+                                        }else if (0 < num && num <= 3)
+                                        {
+                                            int hp = player.GetHp();
+                                            int gold = player.GetGold();
+                                            Dongeon a = dg[num - 1].DongeonPlay(player.GetDefence(), hp, player.GetAttack());
+                                            player.SetHp(hp-a.reHp);
+                                            player.SetGold(gold+a.reGold);
+                                            if (dg[num - 1].IsClear())
+                                            {
+                                                int aa=-1;
+                                                dg[num - 1].DongeonClearPrint(hp, player.GetHp(), gold, player.GetGold());
+                                                while (true)
+                                                {
+                                                    try
+                                                    {
+                                                        aa = int.Parse(Console.ReadLine());
+                                                    }
+                                                    catch (Exception)
+                                                    {
+                                                        Console.WriteLine("숫자를 입력해 주세요");
+                                                    }
+                                                    if (aa == 0)
+                                                    {
+                                                        break;
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("잘못 입력 하셨습니다.");
+                                                    }
+                                                }
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("---------------------------------------------------------");
+                                                Console.WriteLine("실패~~~~~~");
+                                                Console.WriteLine($"현재 체력 : {player.GetHp()}");
+                                                Console.WriteLine("---------------------------------------------------------");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("잘못된 입력입니다.");
+                                        }
+                                    }
+                                }
+                                break;
+                                #endregion //던전입장
                         }
                         #endregion
                         break;
