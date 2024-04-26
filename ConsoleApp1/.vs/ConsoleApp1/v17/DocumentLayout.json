@@ -5,6 +5,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{A8A2AFB6-8FE4-4559-BFD3-110EDF52E073}|ConsoleApp1.csproj|d:\\sprtacodingclub\\c#\\week-2-personal-tasks\\consoleapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A8A2AFB6-8FE4-4559-BFD3-110EDF52E073}|ConsoleApp1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8A2AFB6-8FE4-4559-BFD3-110EDF52E073}|ConsoleApp1.csproj|d:\\sprtacodingclub\\c#\\week-2-personal-tasks\\consoleapp1\\equipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8A2AFB6-8FE4-4559-BFD3-110EDF52E073}|ConsoleApp1.csproj|solutionrelative:equipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8A2AFB6-8FE4-4559-BFD3-110EDF52E073}|ConsoleApp1.csproj|d:\\sprtacodingclub\\c#\\week-2-personal-tasks\\consoleapp1\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8A2AFB6-8FE4-4559-BFD3-110EDF52E073}|ConsoleApp1.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8A2AFB6-8FE4-4559-BFD3-110EDF52E073}|ConsoleApp1.csproj|d:\\sprtacodingclub\\c#\\week-2-personal-tasks\\consoleapp1\\consoleutility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8A2AFB6-8FE4-4559-BFD3-110EDF52E073}|ConsoleApp1.csproj|solutionrelative:consoleutility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8A2AFB6-8FE4-4559-BFD3-110EDF52E073}|ConsoleApp1.csproj|d:\\sprtacodingclub\\c#\\week-2-personal-tasks\\consoleapp1\\dongeon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8A2AFB6-8FE4-4559-BFD3-110EDF52E073}|ConsoleApp1.csproj|solutionrelative:dongeon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +30,61 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ConsoleUtility.cs",
+              "DocumentMoniker": "D:\\SprtaCodingClub\\C#\\Week-2-Personal-Tasks\\ConsoleApp1\\ConsoleUtility.cs",
+              "RelativeDocumentMoniker": "ConsoleUtility.cs",
+              "ToolTip": "D:\\SprtaCodingClub\\C#\\Week-2-Personal-Tasks\\ConsoleApp1\\ConsoleUtility.cs",
+              "RelativeToolTip": "ConsoleUtility.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T06:40:51.605Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dongeon.cs",
+              "DocumentMoniker": "D:\\SprtaCodingClub\\C#\\Week-2-Personal-Tasks\\ConsoleApp1\\Dongeon.cs",
+              "RelativeDocumentMoniker": "Dongeon.cs",
+              "ToolTip": "D:\\SprtaCodingClub\\C#\\Week-2-Personal-Tasks\\ConsoleApp1\\Dongeon.cs",
+              "RelativeToolTip": "Dongeon.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAxwDkAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T06:36:28.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Equipment.cs",
+              "DocumentMoniker": "D:\\SprtaCodingClub\\C#\\Week-2-Personal-Tasks\\ConsoleApp1\\Equipment.cs",
+              "RelativeDocumentMoniker": "Equipment.cs",
+              "ToolTip": "D:\\SprtaCodingClub\\C#\\Week-2-Personal-Tasks\\ConsoleApp1\\Equipment.cs",
+              "RelativeToolTip": "Equipment.cs",
+              "ViewState": "AQIAAE8AAAAAAAAAAAAQwGQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T06:34:48.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Player.cs",
+              "DocumentMoniker": "D:\\SprtaCodingClub\\C#\\Week-2-Personal-Tasks\\ConsoleApp1\\Player.cs",
+              "RelativeDocumentMoniker": "Player.cs",
+              "ToolTip": "D:\\SprtaCodingClub\\C#\\Week-2-Personal-Tasks\\ConsoleApp1\\Player.cs",
+              "RelativeToolTip": "Player.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAADwvxYAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T06:28:42.847Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +93,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\SprtaCodingClub\\C#\\Week-2-Personal-Tasks\\ConsoleApp1\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAACADAAAAAAAAAAAAACsDAABGAAAA",
+              "ViewState": "AQIAALQBAAAAAAAAAAAUwKgBAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-22T07:34:35.382Z",
               "EditorCaption": ""
